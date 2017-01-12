@@ -1,4 +1,9 @@
 #!/usr/bin/env python3.5.1
+# =============================================================
+# =   Use -h --help for usage                                 =
+# =                                                           =
+# =      For problems: Aviv Zaken                             =
+# =============================================================
 
 import os
 import sys
@@ -26,8 +31,6 @@ def parse_args(args):
 
 
 def create_json_file(file):
-	# with open(file, mode='w', encoding='utf-8') as ws:
-		# json.dump({}, ws)
 	with open(file, 'w') as ws:
 		ws.write("{}")
 
@@ -57,10 +60,8 @@ def add_dir(dir, comment):
 
 def retrieve_dir(cwd):
 	data = load_json()
-	if not data:
+	if not data or not cwd in data:
 		return "None"
-	if not cwd in data:
-		print("ERROR")
 	return data[cwd]
 
 
